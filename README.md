@@ -18,6 +18,10 @@ yarn create expo-app --template https://github.com/Myoschen/expo-template
 pnpm create expo-app --template https://github.com/Myoschen/expo-template
 ```
 
+```bash
+bun create expo-app --template https://github.com/Myoschen/expo-template
+```
+
 ## Tech Stack
 
 - [TypeScript](https://www.typescriptlang.org/)
