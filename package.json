@@ -4,9 +4,16 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "env-cmd expo start --clear",
-    "build": "env-cmd eas build --profile development",
-    "update": "env-cmd eas update --auto",
+    "fetch-build": "eas build:run",
+    "dev": "env-cmd -f .env expo start --clear",
+    "dev:stag": "env-cmd -f .env.staging expo start --clear",
+    "dev:prod": "env-cmd -f .env.production expo start --clear",
+    "build": "env-cmd -f .env eas build --profile development",
+    "build:stag": "env-cmd -f .env.staging eas build --profile staging",
+    "build:prod": "eas secret:push --env-file .env.production --force && env-cmd -f .env.production eas build --profile production",
+    "update": "env-cmd -f .env eas update --channel development",
+    "update:stag": "env-cmd -f .env.staging eas update --channel staging",
+    "update:prod": "env-cmd -f .env.production eas update --channel production",
     "lint": "eslint ./src --fix --ext .ts,.tsx"
   },
   "jest": {
